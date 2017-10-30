@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="lib/jquery-1.7.2.js"></script>
+</head>
+<style>
+    .box{
+        width:300px;
+        height:500px;
+        background-color: #0a9ec7;
+        margin:20px;
+    }
+    ul{
+        position: fixed;
+        top:50%;
+        left:70%;
+    }
+    li{
+        list-style: circle;
+    }
+</style>
+<script>
+   $(document).ready(function(){
+      $("#btn6").click(function(){
+         sevenHeight = $("#box6").offset().top;
+          var t = $(window).scrollTop();
+          $('body,html').animate({'scrollTop':t+sevenHeight},2000)
+      });
+       $("#btn5").click(function(){
+           fiveHeight = $("#box5").offset().top;
+           var t = $(window).scrollTop();
+           $('body,html').animate({'scrollTop':t+fiveHeight},2000)
+       });
+   })
+</script>
+<body>
+<ul>
+    <li id="btn6">6</li>
+    <li id="btn5">5</li>
+    <li>4</li>
+    <li>3</li>
+    <li>2</li>
+    <li>1</li>
+</ul>
+<div id="box1" class="box">
+    box1
+</div>
+<div id="box2" class="box">
+    box2
+</div>
+<div id="box3" class="box">
+    box3
+</div>
+<div id="box4" class="box">
+    box4
+</div>
+<div id="box5" class="box">
+    box5
+</div>
+<div id="box6" class="box">
+    box6
+</div>
+</body>
+</html>

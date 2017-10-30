@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    /*容器*/
+    .container {
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+    }
+    /*piece盒子*/
+    .piece-box {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 300px auto;
+        perspective-origin: 50% 50%;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        background-image: url("img/img4.jpg");
+    }
+    /*piece通用样式*/
+    .piece {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: red;
+        opacity: 0.5;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        line-height: 200px;
+
+    }
+    .piece-1 {
+        background: #FF6666;
+        -webkit-transform: rotateY(0deg) translateZ(173.2px);
+        -ms-transform: rotateY(0deg) translateZ(173.2px);
+        -o-transform: rotateY(0deg) translateZ(173.2px);
+        transform: rotateY(0deg) translateZ(173.2px);
+
+    }
+    .piece-2 {
+        background: #FFFF00;
+        -webkit-transform: rotateY(60deg) translateZ(173.2px);
+        -ms-transform: rotateY(60deg) translateZ(173.2px);
+        -o-transform: rotateY(60deg) translateZ(173.2px);
+        transform: rotateY(60deg) translateZ(173.2px);
+    }
+    .piece-3 {
+        background: #006699;
+        -webkit-transform: rotateY(120deg) translateZ(173.2px);
+        -ms-transform: rotateY(120deg) translateZ(173.2px);
+        -o-transform: rotateY(120deg) translateZ(173.2px);
+        transform: rotateY(120deg) translateZ(173.2px);
+    }
+    .piece-4 {
+        background: #009999;
+        -webkit-transform: rotateY(180deg) translateZ(173.2px);
+        -ms-transform: rotateY(180deg) translateZ(173.2px);
+        -o-transform: rotateY(180deg) translateZ(173.2px);
+        transform: rotateY(180deg) translateZ(173.2px);
+    }
+    .piece-5 {
+        background: #FF0033;
+        -webkit-transform: rotateY(240deg) translateZ(173.2px);
+        -ms-transform: rotateY(240deg) translateZ(173.2px);
+        -o-transform: rotateY(240deg) translateZ(173.2px);
+        transform: rotateY(240deg) translateZ(173.2px);
+    }
+    .piece-6 {
+        background: #FF6600;
+        -webkit-transform: rotateY(300deg) translateZ(173.2px);
+        -ms-transform: rotateY(300deg) translateZ(173.2px);
+        -o-transform: rotateY(300deg) translateZ(173.2px);
+        transform: rotateY(300deg) translateZ(173.2px);
+    }
+    /*piece盒子*/
+    .piece-box {
+        position: relative;
+        width: 300px;
+        height: 100px;
+        margin: 300px auto;
+        perspective-origin: 50% 50%;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        animation: pieceRotate 5s linear infinite;
+        -moz-animation: pieceRotate 5s; /* Firefox */
+        -webkit-animation: pieceRotate 5s linear infinite; /* Safari and Chrome */
+        -o-animation: pieceRotate 5s ; /* Opera */
+    }
+    /*走马灯动画*/
+    @keyframes pieceRotate
+    {
+        0%   {-webkit-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            -o-transform: rotateY(0deg);
+            transform: rotateY(0deg);}
+        100% {-webkit-transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            transform: rotateY(180deg);}
+    }
+</style>
+<body>
+<div class="container">
+    <div class="piece-box">
+        <div class="piece piece-1">HTML5</div>
+        <div class="piece piece-2">CSS</div>
+        <div class="piece piece-3">JAVSCRIPT</div>
+        <div class="piece piece-4">ANGULAR</div>
+        <div class="piece piece-5">BOOTSTRAP</div>
+        <div class="piece piece-6">JQUERY</div>
+    </div>
+</div>
+</body>
+</html>

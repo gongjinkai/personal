@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #box{
+        width: 100px;
+        height: 100px;
+        background: red;
+        opacity: 0;
+    }
+</style>
+<body>
+<div id="box" style=""></div>
+<button id="btn1">fadein</button>
+<button id="btn2">fadeout</button>
+</body>
+<script>
+    var box = document.getElementById('box');
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+
+    function fadeIn(obj){
+        var timer = null;
+        console.log(getStyle(box,'opacity'));
+        timer = setInterval(function(){
+            if(obj.style.opacity == 1){
+                clearInterval(timer);
+            }
+            obj.style.opacity = parseFloat(getStyle(box,'opacity'))+0.05
+        },30)
+    }
+
+    function fadeOut (obj) {
+        var timer = null;
+        console.log(getStyle(box,'opacity'));
+        timer = setInterval(function(){
+            if(obj.style.opacity == 0){
+                clearInterval(timer);
+            }
+            obj.style.opacity = parseFloat(getStyle(box,'opacity'))-0.05
+        },30)
+    }
+
+
+
+
+
+
+
+
+
+
+    btn1.onclick=function(){
+        fadeIn(box);
+    };
+    btn2.onclick=function(){
+        fadeOut(box)
+    };
+
+
+    function getStyle(obj,attr){
+        return (obj.currentStyle)?obj.currentStyle[attr]:getComputedStyle(obj)[attr]
+    }
+
+</script>
+</html>
