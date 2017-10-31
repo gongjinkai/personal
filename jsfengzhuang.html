@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    function MathUtil () {
+        this.add = function (aaa,bbb) {
+            var result = aaa + bbb;
+            alert("result==" + result);
+        };
+        this.reduce = function (aaa,bbb) {
+            var result = aaa - bbb;
+            alert("result==" + result);
+        };
+        this.multiply = function (aaa,bbb) {
+            var result = aaa * bbb;
+            alert("result==" + result);
+        };
+        this.divide = function (aaa,bbb) {
+            var result = aaa/bbb;
+            alert("result==" +result);
+        }
+    }
+    var mathUtil1 = new MathUtil();
+    mathUtil1.add(1, 2);
+</script>
+</html>

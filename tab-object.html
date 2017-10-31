@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        list-style: none;
+        font-size: 12px;
+    }
+    .tab{
+        width:298px;
+        height:95px;
+        margin:10px;
+        border: 1px solid #eee;
+        overflow: hidden;
+    }
+    .tab-title{
+        height:27px;
+        position: relative;
+        background: #f7f7f7;
+    }
+    .tab-title ul{
+        position: absolute;
+        width:301px;
+        left:-1px;
+    }
+    .tab-title ul li{
+        float: left;
+        width:58px;
+        height:27px;
+        line-height: 27px;
+        text-align: center;
+        padding: 0 1px;
+        border-bottom: 1px solid #eee;
+        overflow: hidden;
+    }
+    .tab ul li a:link,.tab-title ul li a:visited{
+        text-decoration: none;
+        color:#000;
+    }
+    .tab ul li a:hover{
+        color:#f90;
+        font-weight: 700;
+    }
+    .tab-title li.select{
+        background-color: #fff;
+        border-bottom-color:#fff;
+        border-left:1px solid #eee;
+        border-right: 1px solid #eee;
+        padding: 0;
+    }
+    .tab .tab-content .tabct{
+        margin:10px 10px 10px 19px;
+    }
+    .tab .tab-content .tabct ul li{
+        float:left;
+        width:134px;
+        height:25px;
+        overflow: hidden;
+    }
+    .active{
+        background-color: #fff;
+        color:#f90;
+    }
+</style>
+<body>
+<div class="tab" id="tab">
+    <div class="tab-title" id="tab-title">
+        <ul>
+            <li class="select" >
+                <a href="#">栏目1</a>
+            </li>
+            <li>
+                <a href="#">栏目2</a>
+            </li>
+            <li>
+                <a href="#">栏目3</a>
+            </li>
+            <li>
+                <a href="#">栏目4</a>
+            </li>
+            <li>
+                <a href="#">栏目5</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content" id="tab-content">
+        <div class="tabct" style="display: block">
+            <ul>
+                <li>
+                    <a href="#">示例内容1</a>
+                </li>
+                <li>
+                    <a href="#">示例内容1</a>
+                </li>
+                <li>
+                    <a href="#">示例内容1</a>
+                </li>
+                <li>
+                    <a href="#">示例内容1</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none">
+            <ul>
+                <li>
+                    <a href="#">示例内容2</a>
+                </li>
+                <li>
+                    <a href="#">示例内容2</a>
+                </li>
+                <li>
+                    <a href="#">示例内容2</a>
+                </li>
+                <li>
+                    <a href="#">示例内容2</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none">
+            <ul>
+                <li>
+                    <a href="#">示例内容3</a>
+                </li>
+                <li>
+                    <a href="#">示例内容3</a>
+                </li>
+                <li>
+                    <a href="#">示例内容3</a>
+                </li>
+                <li>
+                    <a href="#">示例内容3</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none">
+            <ul>
+                <li>
+                    <a href="#">示例内容4</a>
+                </li>
+                <li>
+                    <a href="#">示例内容4</a>
+                </li>
+                <li>
+                    <a href="#">示例内容4</a>
+                </li>
+                <li>
+                    <a href="#">示例内容4</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none">
+            <ul>
+                <li>
+                    <a href="#">示例内容1</a>
+                </li>
+                <li>
+                    <a href="#">示例内容2</a>
+                </li>
+                <li>
+                    <a href="#">示例内容3</a>
+                </li>
+                <li>
+                    <a href="#">示例内容4</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    function Tab (title,content){
+        var tabTitle = document.getElementById(title);
+        var tabBox = document.getElementById(content);
+        this.tabBtn = tabTitle.getElementsByTagName('li');
+        this.tabDiv = tabBox.querySelectorAll('.tabct');
+        for(var i=0;i<this.tabBtn.length;i++){
+            this.tabBtn[i].index = i;
+            var _this = this;
+            this.tabBtn[i].onclick = function(){
+                _this.switch(this);
+            };
+        }
+    };
+
+    Tab.prototype.switch = function(btn){
+        for(var j=0;j<this.tabBtn.length;j++){
+            this.tabBtn[j].className='';
+            this.tabDiv[j].style.display='none';
+        }
+        btn.className='active';
+        this.tabDiv[btn.index].style.display='block';
+    };
+
+
+    var tab1 = new Tab('tab-title','tab');
+</script>
+</body>
+</html>
