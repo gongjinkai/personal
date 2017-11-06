@@ -74,7 +74,7 @@
         height: 100%;
     }
     #page1{
-        display: block;
+        display: none;
     }
     #page1 > .bg{
         background: url("./card/p1_bg.jpg") no-repeat center;
@@ -109,6 +109,16 @@
         border-radius: 50%;
         opacity: .5;
         box-shadow: 0 0 10vw 10vw #d60b3b;
+        animation: p1_lantern .5s infinite alternate;
+    }
+    @keyframes p1_lantern {
+        0%{
+            opacity: .5;
+            transform: scale(.8 .8);
+        }
+        100%{
+            opacity: 1;
+        }
     }
     #page1 > .p1_imooc{
         position: absolute;
@@ -131,7 +141,7 @@
         color: #231815;
     }
     #page2{
-        display: none;
+        display: block;
     }
     #page2 > .bg{
         background: url("./card/p2_bg.jpg") no-repeat center center;
@@ -149,6 +159,15 @@
         background-size: 100%;
         width: 59.375vw;
         height: 59.375vw;
+        animation: p2_circle_outer 1s linear 3s infinite;
+    }
+    @keyframes p2_circle_outer {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(-360deg);
+        }
     }
     #page2 > .p2_circle:before{
         position: absolute;
@@ -163,6 +182,38 @@
         background-size: 100%;
         width: 45.625vw;
         height: 45.625vw;
+        animation: p2_circle_middle 1s linear 2s infinite;
+    }
+    @keyframes p2_circle_middle {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(720deg);
+        }
+    }
+    #page2 > .p2_circle:after{
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin: auto;
+        border-radius: 50%;
+        content: "";
+        background: url("./card/p2_circle_inner.png") no-repeat center center;
+        background-size: 100%;
+        width: 39.9375vw;
+        height: 39.9375vw;
+        animation: p2_circle_inner 1s linear 1s infinite;
+    }
+    @keyframes p2_circle_inner {
+        0%{
+            transform: rotate(0deg);
+        }
+       100%{
+            transform: rotate(-1080deg);
+        }
     }
     #page2 > .p2_2016{
         position: absolute;
