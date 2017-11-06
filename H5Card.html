@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    /*all tag*/
+    *{
+        margin: 0;
+        padding: 0;
+        border: none;
+        font-size: 1.5625vw;
+        font-family: "Microsoft Yahei";
+    }
+    html,
+    body{
+        height:100%;
+    }
+    /*music*/
+    #music{
+        position: fixed;
+        top: 3vh;
+        right: 4vw;
+        z-index: 5;
+        width: 15vw;
+        height: 15vw;
+        border: 1px solid #ef1639;
+        border-radius: 50%;
+        background: #fff;
+    }
+    #music > img:first-of-type {
+        position: absolute;
+        top: 24%;
+        right: 2.5%;
+        width: 28.421%;
+        z-index: 1;
+    }
+    #music > img:last-of-type{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin:2vw 1vw 0 0;
+        width: 79%;
+        height: 79%;
+        z-index: 0;
+    }
+    #music > img.play{
+        animation: music_disc 4s linear infinite;
+        -o-animation: music_disc 4s linear infinite;
+        -webkit-animation: music_disc 4s linear infinite;
+    }
+    @keyframes music_disc {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+    /*page bg*/
+    .page{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .page > .bg{
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+    }
+    #page1{
+        display: none;
+    }
+    #page1 > .bg{
+        background: url("./card/p1_bg.jpg") no-repeat center;
+    }
+    #page1 > .p1_lantern {
+        position: absolute;
+        top: -3.4%;
+        right:0;
+        left:0;
+        margin: auto;
+        background: url("./card/p1_lantern.png") no-repeat center bottom;
+        background-size: 100%;
+        width: 45vw;
+        height: 71.2vh;
+        font-size: 3.506rem;
+        padding-top:30vh;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    #page1 > .p1_lantern:before{
+        position: absolute;
+        top:0;
+        right:0;
+        left:0;
+        bottom:0;
+        z-index: -1;
+        content: "";
+        margin:auto;
+        width: 30vw;
+        height: 30vw;
+        background: #d60b3b;
+        border-radius: 50%;
+        opacity: .5;
+        box-shadow: 0 0 10vw 10vw #d60b3b;
+    }
+    #page1 > .p1_imooc{
+        position: absolute;
+        right: 0;
+        bottom: 9vh;
+        left: 0;
+        background: url("./card/p1_imooc.png") no-repeat center center;
+        background-size: 100%;
+        width: 27.656vw;
+        height: 18.63vh;
+        margin: auto;
+    }
+    #page1 > .p1_words{
+        font-size: 2.134rem;
+        position: absolute;
+        right: 0;
+        bottom: 24px;
+        left: 0;
+        text-align: center;
+        color: #231815;
+    }
+    #page2{
+        display: none;
+    }
+    #page2 > .bg{
+        background: url("./card/p2_bg.jpg") no-repeat center center;
+        background-size: 100%;
+    }
+    #page2 > .p2_circle{
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin: auto;
+        border-radius: 50%;
+        background: url("./card/p2_circle_outer.png") no-repeat center center;
+        background-size: 100%;
+        width: 59.375vw;
+        height: 59.375vw;
+    }
+    #page2 > .p2_circle:before{
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin: auto;
+        border-radius: 50%;
+        content: "";
+        background: url("./card/p2_circle_middle.png") no-repeat center center;
+        background-size: 100%;
+        width: 45.625vw;
+        height: 45.625vw;
+    }
+    #page2 > .p2_2016{
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        background: url("./card/p2_2016.png") no-repeat center center;
+        background-size: 100%;
+        width: 27.5vw;
+        height: 6.24vh;
+    }
+    #page3{
+        display: block;
+    }
+    #page3 > .bg{
+        background: url("./card/p3_bg.jpg") no-repeat center;
+    }
+    #page3 >.p3_logo{
+        position: absolute;
+        width: 34.68752vw;
+        height: 6.327vh;
+        top: 7.82vh;
+        right: 0;
+        left: 0;
+        background: url("./card/p3_logo.png") no-repeat center center;
+        background-size: 100%;
+    }
+    #page3 > .p3_title{
+        position: absolute;
+        width: 48.125vw;
+        height: 50vh;
+        top: 21vh;
+        right:0;
+        left:0;
+        margin: auto;
+        background: url("./card/p3_title.png") no-repeat center center;
+        background-size: 100%;
+    }
+    #page3 > .p3_second{
+        position: absolute;
+        width: 22.8125vw;
+        height: 41.652vh;
+        top: 25.48vh;
+        left: 3.75vw;
+        background: url("./card/p3_couplet_second.png") no-repeat center center;
+        background-size: 100%;
+    }
+    #page3 > .p3_first{
+        position: absolute;
+        width: 22.8125vw;
+        height: 41.652vh;
+        top: 25.48vh;
+        right: 3.75vw;
+        background: url("./card/p3_couplet_first.png") no-repeat center center;
+        background-size: 100%;
+    }
+    #page3 > .p3_blessing{
+        position: absolute;
+        width: 32vw;
+        height: 32vw;
+        right: 0;
+        bottom: 10vh;
+        left: 0;
+        margin: auto;
+        border-radius: 50%;
+        background: url("./card/p3_blessing.png") no-repeat center center;
+        background-size: 100%;
+    }
+</style>
+<body>
+<div id="music">
+    <img src="card/music_pointer.png" width="27" height="43">
+    <img class="play" src="card/music_disc.png" width="75" height="75">
+</div>
+<div class="page" id="page1">
+    <div class="bg"></div>
+    <div class="p1_lantern">点击屏幕<br>开启好运2016</div>
+    <div class="p1_imooc"></div>
+    <div class="p1_words">2016新春特别贡献</div>
+</div>
+<div class="page" id="page2">
+    <div class="bg"></div>
+    <div class="p2_circle"></div>
+    <div class="p2_2016"></div>
+</div>
+<div class="page" id="page3">
+    <div class="bg"></div>
+    <div class="p3_logo"></div>
+    <div class="p3_title"></div>
+    <div class="p3_second"></div>
+    <div class="p3_first"></div>
+    <div class="p3_blessing"></div>
+</div>
+</body>
+</html>
