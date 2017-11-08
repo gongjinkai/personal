@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //Example1
+    function add(a,b){
+        alert(a+b);
+    }
+    function sub() {
+        alert(a-b);
+    }
+    add.call(sub,3,1);
+
+    //Example2
+    function Cat(){
+        this.name="cat";
+        this.show=function(){
+            alert(this.name);
+            console.log(this);
+        }
+    }
+
+    var huamao = new Cat();
+    huamao.show();
+</script>
+</body>
+</html>
