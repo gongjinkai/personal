@@ -10,13 +10,13 @@
 
 </body>
 <script>
-//example1
+    //example1
     function person() {
         this.name="xl";
         console.log(this);
         console.log(this.name);
     }
-//example2
+    //example2
     var name="XL";
     var person={
         name:"xl",
@@ -29,43 +29,63 @@
 
     var showNameA=person.showName;
     showNameA();    //输出  XL
-/*
-    //这里将person.showName方法赋给showNameA变量，此时showNameA变量相当于window对象的一个属性，因此showNameA()执行的时候相当于window.showNameA(),即window对象调用showNameA这个方法，所以this关键字指向window
+    /*
+        //这里将person.showName方法赋给showNameA变量，此时showNameA变量相当于window对象的一个属性，因此showNameA()执行的时候相当于window.showNameA(),即window对象调用showNameA这个方法，所以this关键字指向window
 
-//example3
-    var woman ={
-        name:"xiaohong",
-        showName:function(){
-            console.log(this.name)
-        }
-    };
-    woman.showName();
-    var showNameB = woman.showName;
-    showNameB();
-    */
+    //example3
+        var woman ={
+            name:"xiaohong",
+            showName:function(){
+                console.log(this.name)
+            }
+        };
+        woman.showName();
+        var showNameB = woman.showName;
+        showNameB();
+        */
 
-function a(){
-    var name = "小明";
-    console.log(this.name); //undefined
-    console.log(this); //Window
-}
-a();
-
-var o = {
-    name:"xiaoming",
-    fn:function(){
-        console.log(this.name);  //追梦子
+    function a(){
+        var name = "小明";
+        console.log(this.name); //undefined
+        console.log(this); //Window
     }
-}
-o.fn();
+    a();
+
+    var o = {
+        name:"xiaoming",
+        fn:function(){
+            console.log(this.name);  //追梦子
+        }
+    }
+    o.fn();
 
     function a(xx){
         this.x=xx;
         return this
-    };
-        var x=a(5);
-        var y=a(6);
-        console.log(x.x);
-        console.log(y.x);
+    }
+    var x=a(5);
+    var y=a(6);
+    console.log(x.x);
+    console.log(y.x);
+
+    function method (){
+        return this.name.toUpperCase();
+    }
+
+    function showName(){
+        var green = "Hello, I'm " + method.call( this );
+    }
+
+    var person1= {
+        name: "zhang"
+    }
+
+    var person2= {
+        name: "li"
+    }
+    console.log(method.call(person1));
+    console.log(method.call(person2));
+    console.log(showName.call(person1));
+    console.log(showName.call(person2));
 </script>
 </html>
