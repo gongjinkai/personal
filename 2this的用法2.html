@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+//example1
+    function person() {
+        this.name="xl";
+        console.log(this);
+        console.log(this.name);
+    }
+//example2
+    var name="XL";
+    var person={
+        name:"xl",
+        showName:function(){
+            console.log(this.name);
+        }
+    };
+    person.showName();  //输出  xl
+    //这里是person对象调用showName方法，很显然this关键字是指向person对象的，所以会输出name
+
+    var showNameA=person.showName;
+    showNameA();    //输出  XL
+/*
+    //这里将person.showName方法赋给showNameA变量，此时showNameA变量相当于window对象的一个属性，因此showNameA()执行的时候相当于window.showNameA(),即window对象调用showNameA这个方法，所以this关键字指向window
+
+//example3
+    var woman ={
+        name:"xiaohong",
+        showName:function(){
+            console.log(this.name)
+        }
+    };
+    woman.showName();
+    var showNameB = woman.showName;
+    showNameB();
+    */
+
+function a(){
+    var name = "小明";
+    console.log(this.name); //undefined
+    console.log(this); //Window
+}
+a();
+
+var o = {
+    name:"xiaoming",
+    fn:function(){
+        console.log(this.name);  //追梦子
+    }
+}
+o.fn();
+
+    function a(xx){
+        this.x=xx;
+        return this
+    };
+        var x=a(5);
+        var y=a(6);
+        console.log(x.x);
+        console.log(y.x);
+</script>
+</html>
