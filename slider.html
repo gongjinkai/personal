@@ -101,12 +101,12 @@
     var moveTarget = container.offsetWidth;
     var imgWidth=document.getElementsByTagName('img').length * moveTarget;          //计算总宽度
     var EndTarget = (document.getElementsByTagName('img').length-1) * moveTarget;   //停止滚动宽度
-    wrap.style.width = imgWidth+"px";      //动态设置滚动元素宽度
     var Prev = document.querySelector('.arrow_left');
     var Next = document.querySelector('.arrow_right');
     var left = 0;
     var target = 0;
     var timer = null;
+    wrap.style.width = imgWidth+"px";      //动态设置滚动元素宽度
 
     Next.onclick = function  () {
         if (target <= -EndTarget) {
