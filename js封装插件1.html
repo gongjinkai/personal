@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #toast {
+        position: absolute;
+        display: none;
+        left: 50%;
+        top: 50%;
+        z-index: 99999;
+        margin: 0 auto;
+        -webkit-transform: translate(-50%);
+        transform: translate(-50%);
+        width: 50%;
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+        color: #fff;
+        background-color: #000;
+    }
+</style>
+<body>
+<div id="toast"></div>
+</body>
+<script>
+    (function() {
+        /***
+         * 信息提示组件Toast v1.0
+         * @param {Object} container 内容容器(必填)
+         * @param {Object} content 文字内容(可选)
+         * @param {Object} duration 显示时长(可选)
+         * 使用方法
+         * var toast = new Toast("toast", "你好，对话框");
+         * toast.show();(支持回调函数)
+         */
+        function Toast(container, content, duration) {
+            this.container = document.getElementById(container);
+            this.content = content || "这是一段对话";
+            this.duration = duration || 2000;
+        }
+
+        Toast.prototype.show = function(callback) {
+            this.callback = callback || function() {};
+            this.container.style.opacity = 1;
+            this.container.style.display = "block";
+            this.container.innerHTML = this.content;
+
+            setTimeout(function() {
+                this.callback && this.callback();
+                this.hide();
+            }.bind(this), this.duration);
+
+            return this;
+        };
+
+        Toast.prototype.hide = function(callback) {
+            this.callback = callback || function() {};
+
+            this.container.style.display = "none";
+            this.callback && this.callback();
+            return this;
+        };
+
+        window.Toast = Toast;
+
+    })(window);
+</script>
+<script>
+    var toast = new Toast("toast");
+    toast.show(function(){
+        alert("scuess")
+    });
+</script>
+</html>
