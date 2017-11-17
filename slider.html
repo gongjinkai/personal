@@ -1,0 +1,302 @@
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>document</title>
+</head>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        background: red;
+        width: 600px;
+        height: 300px;
+        overflow: hidden;
+        margin: 100px auto;
+        position: relative;
+    }
+
+    img {
+        width: 300px;
+        height: 300px;
+        vertical-align: top;
+        /*取消底边的3px */
+    }
+
+    ul {
+        width: 500%;
+        height: 300px;
+        list-style: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    li {
+        float: left;
+    }
+    .btn span{
+        width: 30px;
+        height: 50px;
+        background: #4a4a4a;
+        display: inline-block;
+        position: absolute;
+        text-align: center;
+        line-height: 50px;
+        font-size: 24px;
+        opacity: 0.4;
+        cursor: pointer;
+    }
+    .btn span:hover{
+        opacity: 1;
+        color: #fff;
+    }
+
+    .btn .left{
+        left: 0;
+        top: 125px;
+    }
+
+    .btn .right{
+        right: 0;
+        top: 125px;
+    }
+
+
+</style>
+
+<body>
+<div class="box" id="box">
+    <ul id="inner-box">
+        <li><img src="img/img3.jpg"></li>
+        <li><img src="img/img4.jpg"></li>
+        <li><img src="img/img5.jpg"></li>
+        <li><img src="img/img6.jpg"></li>
+        <li><img src="img/img7.jpg"></li>
+    </ul>
+    <div class="btn">
+        <span class="left" id="left"><</span>
+        <span class="right" id="right">></span>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var oBox = document.getElementById("box");
+    var oUl = document.getElementById("inner-box");
+    var oLeft = document.getElementById("left");
+    var oRight = document.getElementById("right");
+    var cur = 0; //定义一个变量用于设置left值
+    var timer = null; //定义一个计时器
+    var target = 0;
+
+
+
+    oRight.onclick = function  () {
+        if (target <= -600) {
+           return
+        } else {
+            target -= 300;
+        }
+        sport(target);
+    };
+
+    oLeft.onclick = function  () {
+        if (target >= 0) {
+           return
+
+        } else{
+            target += 300;
+        }
+        sport(target);
+    };
+
+    function sport(tar) {
+        clearInterval(timer);
+        timer = setInterval(autoPlay, 30); //设置定时器每30毫秒执行一次
+        function autoPlay() {
+            if (cur == tar) {
+                clearInterval(timer) //大于目标值时，清空计时器
+            } else {
+                speed = (tar - cur) / 7; //计算速度
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed); //取整
+                cur = cur + speed;
+                oUl.style.left = cur + "px";
+            }
+        }
+    }
+</script>
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+    }
+
+    body {
+        padding: 20px;
+    }
+
+    #container {
+        position: relative;
+        margin: auto;
+        width: 1200px;
+        height: 400px;
+        overflow: hidden;
+    }
+
+    #list {
+        position: absolute;
+        z-index: 1;
+    }
+
+    #list img {
+        float: left;
+        width: 1200px;
+        height: 400px;
+    }
+
+    #buttons {
+        position: absolute;
+        left: 250px;
+        bottom: 20px;
+        z-index: 2;
+        height: 10px;
+        width: 100px;
+    }
+
+    #buttons span {
+        float: left;
+        margin-right: 5px;
+        width: 10px;
+        height: 10px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        background: #333;
+        cursor: pointer;
+    }
+
+    #buttons .on {
+        background: orangered;
+    }
+
+    .arrow {
+        position: absolute;
+        top: 180px;
+        z-index: 2;
+        display: none;
+        width: 40px;
+        height: 40px;
+        font-size: 36px;
+        font-weight: bold;
+        line-height: 39px;
+        text-align: center;
+        color: #fff;
+        background-color: RGBA(0, 0, 0, .3);
+        cursor: pointer;
+    }
+
+    .arrow:hover {
+        background-color: RGBA(0, 0, 0, .7);
+    }
+
+    #container:hover .arrow {
+        display: block;
+    }
+
+    #prev {
+        left: 20px;
+    }
+
+    #next {
+        right: 20px;
+    }
+</style>
+<body>
+<div id="container">
+    <div id="list">
+        <img src="img/slider1.jpg">
+        <img src="img/slider2.jpg">
+        <img src="img/slider3.jpg">
+        <img src="img/slider4.jpg">
+        <img src="img/slider5.jpg">
+    </div>
+    <div id="buttons">
+        <span index="1" class="on"></span>
+        <span index="2"></span>
+        <span index="3"></span>
+        <span index="4"></span>
+        <span index="5"></span>
+    </div>
+    <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+    <a href="javascript:;" id="next" class="arrow">&gt;</a>
+</div>
+</body>
+<script>
+    /*上下滚动*/
+    var list = document.getElementById('list');
+    var Prev = document.getElementById('prev');
+    var Next = document.getElementById('next');
+    var circleCount = document.getElementsByTagName('span');
+    var moveTarget = document.getElementById('container').offsetWidth;
+    var maxWidth = document.getElementsByTagName("img").length * moveTarget;
+    var EndTarget = (document.getElementsByTagName("img").length-1) * moveTarget;
+    var left = 0;
+    var target = 0;
+    var timer = null;
+    list.style.width = maxWidth+"px";
+    Next.onclick = function  () {
+        if (target <= -EndTarget) {
+            target = 0
+        } else {
+            target -= moveTarget;
+        }
+        sport(target);
+    };
+    Prev.onclick = function  () {
+        if (target >= 0) {
+            target = -EndTarget
+        } else{
+            target += moveTarget;
+        }
+        sport(target);
+    };
+    function sport(tar) {
+        clearInterval(timer);
+
+        var index = parseInt(-tar/1200);
+        for(var i=0;i<circleCount.length;i++){
+            circleCount[i].setAttribute("class","");
+        }
+        circleCount[index].className="on";
+
+        timer = setInterval(autoPlay, 30);
+        function autoPlay() {
+            if (left == tar) {
+                clearInterval(timer);
+            } else {
+                speed = (tar - left) / 7;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                left = left + speed;
+                list.style.left = left + "px";
+                console.log(list.style.left);
+            }
+        }
+    };
+
+</script>
+</html>
