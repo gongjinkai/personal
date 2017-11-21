@@ -20,7 +20,7 @@
         height:100%;
     }
     /*music*/
-    #music{
+    .music{
         position: fixed;
         top: 3vh;
         right: 4vw;
@@ -31,14 +31,15 @@
         border-radius: 50%;
         background: #fff;
     }
-    #music > img:first-of-type {
+    .music > img:first-of-type {
         position: absolute;
         top: 24%;
         right: 2.5%;
         width: 28.421%;
         z-index: 1;
+        transform: rotate(30deg);
     }
-    #music > img:last-of-type{
+    .music > img:last-of-type{
         position: absolute;
         top: 0;
         right: 0;
@@ -48,7 +49,7 @@
         height: 79%;
         z-index: 0;
     }
-    #music > img.play{
+    .music > img.play{
         animation: music_disc 4s linear infinite;
         -o-animation: music_disc 4s linear infinite;
         -webkit-animation: music_disc 4s linear infinite;
@@ -141,7 +142,7 @@
         color: #231815;
     }
     #page2{
-        display: block;
+        display: none;
     }
     #page2 > .bg{
         background: url("./card/p2_bg.jpg") no-repeat center center;
@@ -192,7 +193,7 @@
             transform: rotate(720deg);
         }
     }
-    #page2 > .p2_circle:after{
+    #pa ge2 > .p2_circle:after{
         position: absolute;
         top:0;
         left:0;
@@ -228,7 +229,7 @@
         height: 6.24vh;
     }
     #page3{
-        display: none;
+        display: block;
     }
     #page3 > .bg{
         background: url("./card/p3_bg.jpg") no-repeat center;
@@ -283,10 +284,19 @@
         border-radius: 50%;
         background: url("./card/p3_blessing.png") no-repeat center center;
         background-size: 100%;
+        animation: p3_blessing 2s linear infinite;
+    }
+    @-webkit-keyframes p3_blessing {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 </style>
 <body>
-<div id="music">
+<div class="music" id="music">
     <img src="card/music_pointer.png" width="27" height="43">
     <img class="play" src="card/music_disc.png" width="75" height="75">
 </div>
@@ -309,10 +319,36 @@
     <div class="p3_first"></div>
     <div class="p3_blessing"></div>
 </div>
+<audio src="audio/music.mp3"  autoplay="true"></audio>
 </body>
 <script>
-    $("#map").on('click',a,function(){
-        $(this).attr('href','#')
-    })
+    window.onload=function() {
+        var music = document.getElementById('music');
+        var audio = document.getElementsByTagName('audio')[0];
+        /*
+        music.onclick = function () {
+           if(audio.paused){
+               audio.play();
+               this.style.animationPlayState = "running"
+               this.style.webkitAnimationPlayState = "running"
+           }else{
+               audio.pause();
+               this.style.animationPlayState = "paused"
+               this.style.webkitAnimationPlayState = "paused"
+           }
+        }
+        */
+        music.addEventListener('touchstart',function(event){
+            if(audio.paused){
+                audio.play();
+                this.style.animationPlayState = "running"
+                this.style.webkitAnimationPlayState = "running"
+            }else{
+                audio.pause();
+                this.style.animationPlayState = "paused"
+                this.style.webkitAnimationPlayState = "paused"
+            }
+        },false)
+    }
 </script>
 </html>
