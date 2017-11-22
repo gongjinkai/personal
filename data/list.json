@@ -1,0 +1,12 @@
+[
+  { "goodsId":1, "goodsName":"香辣鸡腿堡", "price":18, "goodsImg":"static/food1.jpg","count":1},
+  { "goodsId":2, "goodsName":"田园鸡腿堡", "price":15 , "goodsImg":"static/food2.jpg","count":1},
+  { "goodsId":3, "goodsName":"和风汉堡", "price":15, "goodsImg":"static/food3.jpg","count":1 },
+  { "goodsId":4, "goodsName":"大包薯条", "price":18, "goodsImg":"static/food4.jpg","count":1 },
+  { "goodsId":5, "goodsName":"脆皮炸鸡腿", "price":20 , "goodsImg":"static/food5.jpg","count":1},
+  { "goodsId":6, "goodsName":"魔法鸡块", "price":20 , "goodsImg":"static/food6.jpg","count":1},
+  { "goodsId":7, "goodsName":"可乐大杯", "price":10 , "goodsImg":"static/food7.jpg","count":1},
+  { "goodsId":8, "goodsName":"雪顶咖啡", "price":18 , "goodsImg":"static/food8.jpg","count":1},
+  { "goodsId":9, "goodsName":"儿童欢乐套餐", "price":25 , "goodsImg":"static/food9.jpg","count":1},
+  { "goodsId":10, "goodsName":"快乐全家桶", "price":99, "goodsImg":"static/food10.jpg","count":1}
+]
