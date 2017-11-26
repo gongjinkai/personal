@@ -1,0 +1,40 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    function runAsync(callback){
+        setTimeout(function(){
+            console.log('2s after');
+            callback('这是一个回调函数')
+        },2000)
+    }
+    
+    runAsync(function(data){
+        console.log(data)
+    })
+
+    function add(callback){
+        console.log(66);
+        callback("hello world");
+    }
+    add(function(data){
+        console.log(data);
+    });
+
+    //回调
+    function fn(a,b,callback){
+        console.log(a+b);
+        setTimeout(function(){
+            callback()
+        },1000)
+    }
+    fn(1,5,function(){
+        alert('这是回调函数');
+    })
+</script>
+</body>
+</html>
