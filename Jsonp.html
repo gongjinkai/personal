@@ -1,0 +1,108 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    #q {
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border: 1px solid #f90;
+        font-size: 16px;
+    }
+
+    #ul1 {
+        border: 1px solid #f90;
+        width: 310px;
+        margin: 0;
+        padding: 0;
+        display: none;
+    }
+
+    li a {
+        line-height: 30px;
+        padding: 5px;
+        text-decoration: none;
+        color: black;
+        display: block;
+    }
+
+    li a:hover {
+        background: #f90;
+        color: white;
+    }
+</style>
+<body>
+    <input type="text" id="q">
+    <ul id="show"></ul>
+</body>
+<script>
+/*
+    function solve(data){   //得到百度API返回的数据
+        var show = document.getElementById('show');
+        var html = "";
+        if(data.s.length){
+            show.style.display = 'block';
+            var len = data.s.length;
+            for(var i=0;i<len;i++){
+                html += '<li><a target="_blank" href="http://www.baidu.com/s?wd='+data.s[i]+'">'+ data.s[i] +'</a></li>';
+            }
+            show.innerHTML = html;
+        }else{
+            show.style.display = 'none'
+        }
+    }
+
+    window.onload = function(){
+        var oQ = document.getElementById('q'),
+            Show = document.getElementById('show');
+
+        oQ.onkeyup = function(){//当有键盘事件的时候
+            if(this.value!=""){
+                var oScript = document.createElement("script");//创建一个script标签，准备引入资源
+                oScript.src = 'http://suggestion.baidu.com/su?wd='+this.value+'&cb=solve';
+                //上面的两行就相当于<script src="ziyuan"> <\/script>
+                document.body.appendChild(oScript);//加入的body中
+            } else{
+                Show.style.display = "none";
+            }
+        }
+    }
+*/
+
+
+    function getData(data){
+        var show = document.getElementById('show');
+        var html = "";
+        if(data.result.length){
+            show.style.display = 'block';
+            for(var i=0;i<data.result.length;i++){
+                html += '<li><a target="_blank" href="https://www.so.com/s?ie=utf-8&fr=none&src=sug-local&q='+data.result[i].word+'">'+ data.result[i].word +'</a></li>';            }
+            show.innerHTML = html;
+        }else{
+            show.style.display = 'none';
+        }
+    }
+
+  window.onload = function(){
+      var oQ = document.getElementById('q'),
+          Show = document.getElementById('show');
+      oQ.onkeyup = function(){
+          if(this.value != ''){
+              var oScript = document.createElement('script');
+              oScript.src = 'https://sug.so.360.cn/suggest?callback=getData&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word='+this.value+'';
+              document.body.appendChild(oScript);//加入的body中
+          }else{
+              Show.style.display = 'none';
+          }
+      }
+  }
+</script>
+</html>
