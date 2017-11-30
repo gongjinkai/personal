@@ -8,5 +8,6 @@
   { "goodsId":7, "goodsName":"可乐大杯", "price":10 , "goodsImg":"static/food7.jpg","count":1},
   { "goodsId":8, "goodsName":"雪顶咖啡", "price":18 , "goodsImg":"static/food8.jpg","count":1},
   { "goodsId":9, "goodsName":"儿童欢乐套餐", "price":25 , "goodsImg":"static/food9.jpg","count":1},
-  { "goodsId":10, "goodsName":"快乐全家桶", "price":99, "goodsImg":"static/food10.jpg","count":1}
+  { "goodsId":10, "goodsName":"快乐全家桶", "price":99, "goodsImg":"static/food10.jpg","count":1},
+  { "goodsId":11, "goodsName":"香辣鸡翅", "price":8, "goodsImg":"static/food11.jpg","count":1},
 ]
