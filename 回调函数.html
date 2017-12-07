@@ -6,6 +6,7 @@
 </head>
 <body>
 <script>
+    /*
     function runAsync(callback){
         setTimeout(function(){
             console.log('2s after');
@@ -35,6 +36,29 @@
     fn(1,5,function(){
         alert('这是回调函数');
     })
+
+
+    */
+
+    (function(window){
+       var Pig = function () {
+           this.setting = {
+               width:400,
+               height:400,
+               title: '标题',
+               content: '正文内容'
+           }
+       }
+       Pig.prototype.init = function(){
+           console.log(this.settings.width);
+       };
+       window.Pig = Pig();
+    })(window);
+
+
+    var cc = new Pig();
+    cc.init();
+
 </script>
 </body>
 </html>
