@@ -41,6 +41,10 @@ function getData(url){
 getData(url)
     .then((res)=>{
     console.log(res);
+});
+getData(url1)
+    .then((res)=>{
+    console.log(res);
 })
 
 
