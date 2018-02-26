@@ -25,9 +25,9 @@
         height: 400px;
         overflow: hidden;
     }
-
     #list {
         position: absolute;
+        width: 6000px;
         z-index: 1;
     }
 
@@ -100,19 +100,10 @@
         <img src="img/slider3.jpg">
         <img src="img/slider4.jpg">
         <img src="img/slider5.jpg">
-        <img src="img/slider1.jpg">
-        <img src="img/slider2.jpg">
-        <img src="img/slider3.jpg">
-        <img src="img/slider4.jpg">
-        <img src="img/slider5.jpg">
+
     </div>
     <div id="buttons">
         <span class="on"></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
         <span></span>
         <span></span>
         <span></span>
@@ -134,7 +125,7 @@
     var left = 0;
     var target = 0;
     var timer = null;
-    list.style.width = maxWidth+"px";
+
     Next.onclick = function  () {
         if (target <= -EndTarget) {
             target = 0
@@ -151,16 +142,27 @@
         }
         sport(target);
     };
+    for(var i=0;i<circleCount.length;i++){
+        (function(i){
+            circleCount[i].onclick=function(){
+                for(var j=0;j<circleCount.length;j++){
+                    circleCount[j].className = "";
+                }
+                sport(-moveTarget * i);
+                circleCount[i].setAttribute("class","on");
+            }
+        })(i)
+    }
     function sport(tar) {
         clearInterval(timer);
-
         var index = parseInt(-tar/1200);
-        for(var i=0;i<circleCount.length;i++){
-            circleCount[i].setAttribute("class","");
-        }
-        circleCount[index].className="on";
-
         timer = setInterval(autoPlay, 30);
+        for(var i=0;i<circleCount.length;i++){
+            for(var j=0;j<circleCount.length;j++){
+                circleCount[j].setAttribute("class","")
+            }
+            circleCount[index].setAttribute("class","on")
+        }
         function autoPlay() {
             if (left == tar) {
                 clearInterval(timer);
@@ -172,7 +174,6 @@
                 console.log(list.style.left);
             }
         }
-    };
-
+    }
 </script>
 </html>

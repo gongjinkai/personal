@@ -2,6 +2,7 @@
 //服务器上的jquery
 var cheerio = require('cheerio');
 var fs = require('fs');
+var request = request('request');
 //url地址
 var url = "http://www.ygdy8.net/html/gndy/dyzz/index.html";
 
@@ -29,3 +30,17 @@ function pushData(html) {
     })
     console.log(read);
 }
+var requestData = {"name":"张三","age":14};
+request({
+   url:'http://127.0.0.1/get_user',
+   method:'POST',
+   json:true,
+   headers:{
+       "content-type": "application/json"
+   },
+   body:JSON.stringify(requestData)
+},function(req,res,body){
+    if(!error && res.statusCode == 200){
+        console.log(body);
+    }
+});
